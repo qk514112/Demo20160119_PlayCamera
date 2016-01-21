@@ -11,10 +11,8 @@ import android.graphics.Point;
 import android.os.Bundle;
 import android.view.SurfaceHolder;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 
 public class CameraActivity extends Activity implements CamOpenOverCallback {
@@ -392,23 +390,24 @@ public class CameraActivity extends Activity implements CamOpenOverCallback {
             @Override
             public void onClick(View v) {
 
-                switch (radianCount) {
-                    case 1: {
-                        radianImg.setImageResource(R.drawable.left_radian_40);
-                        radianCount++;
-                        break;
-                    }
-                    case 2: {
-                        radianImg.setImageResource(R.drawable.mid_radian);
-                        radianCount++;
-                        break;
-                    }
-                    case 3: {
-                        radianImg.setImageResource(R.drawable.right_radian_40);
-                        radianCount = 1;
-                        break;
-                    }
+//                41 - radianCount 获取图片名字;
+                if ( radianCount < 41 && radianCount > 0) {
+                    int id = getResources().getIdentifier("radian_left_" + (41 - radianCount ), "drawable", getApplicationContext().getPackageName());
+                    radianImg.setImageDrawable(getResources().getDrawable(id));
+                    radianCount++;
+                } else  if ( radianCount == 41) {
+                    radianImg.setImageResource(R.drawable.radian_mid);
+                    radianCount = 1;
                 }
+//                else if ( radianCount > 41 && radianCount < 81) {
+//                    int id = getResources().getIdentifier("radian_right_" + (radianCount - 41), "drawable", getApplicationContext().getPackageName());
+//                    radianImg.setImageDrawable(getResources().getDrawable(id));
+//                    radianCount++;
+//                } else  if ( radianCount == 81 ) {
+//
+//                }
+
+
             }
         });
     }

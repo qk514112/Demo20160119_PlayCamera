@@ -76,7 +76,7 @@
                         android:layout_height="287px"
                         android:visibility="visible"
                         android:layout_marginBottom="-80px"
-                        android:src="@drawable/right_radian_40"
+                        android:src="@drawable/radian_right_40"
                         android:layout_gravity="bottom|right"/>
                 </LinearLayout>
 
