@@ -397,15 +397,14 @@ public class CameraActivity extends Activity implements CamOpenOverCallback {
                     radianCount++;
                 } else  if ( radianCount == 41) {
                     radianImg.setImageResource(R.drawable.radian_mid);
+                    radianCount++;
+                } else if ( radianCount > 41 && radianCount < 82) {
+                    int id = getResources().getIdentifier("radian_right_" + (radianCount - 41), "drawable", getApplicationContext().getPackageName());
+                    radianImg.setImageDrawable(getResources().getDrawable(id));
+                    radianCount++;
+                } else  if ( radianCount == 82 ) {
                     radianCount = 1;
                 }
-//                else if ( radianCount > 41 && radianCount < 81) {
-//                    int id = getResources().getIdentifier("radian_right_" + (radianCount - 41), "drawable", getApplicationContext().getPackageName());
-//                    radianImg.setImageDrawable(getResources().getDrawable(id));
-//                    radianCount++;
-//                } else  if ( radianCount == 81 ) {
-//
-//                }
 
 
             }
